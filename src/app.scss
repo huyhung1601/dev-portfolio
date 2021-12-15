@@ -1,0 +1,16 @@
+.app {
+  height: 100vh;
+  .sections {
+    width: 100%;
+    height: calc(100vh);
+    position: relative;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    > *{
+      position: relative;
+      width: 100vw;
+      padding: 90px 10px 10px 10px;
+      height: 100%;
+    }
+  }
+}

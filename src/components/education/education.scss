@@ -1,0 +1,10 @@
+@import "../../global.scss";
+
+.education{
+    position: absolute;
+    animation: fadeIn 1.1s ease-in-out;
+    top: 10px;
+    .education-title{
+        margin: 10px 0;
+    }
+}

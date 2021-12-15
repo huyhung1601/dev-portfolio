@@ -1,0 +1,128 @@
+.navbar {
+  width: 100vw;
+  height: 80px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+
+  .logo {
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    padding: 0 100px;
+    line-height: 80px;
+    h4{
+      top: 0;
+      position: absolute;
+      &:nth-child(1){
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+      };
+      &:nth-child(2){
+        color: #03a9f4;
+        animation: water 4s ease-in-out infinite;
+      }
+      @keyframes water {
+        0%,100%{
+          clip-path: polygon(0% 55%, 18% 55%, 35% 65%, 52% 70%, 68% 68%, 83% 63%, 100% 56%, 100% 100%, 0 80%);
+        }
+        50%{
+          clip-path: polygon(0 53%, 14% 56%, 34% 61%, 55% 55%, 74% 44%, 86% 41%, 100% 39%, 100% 100%, 0 100%);
+        }
+      }
+    }
+  }
+  ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    margin-right: 80px;
+    li {
+      display: inline-block;
+      margin: 0 8px;
+      line-height: 80px;
+      a {
+        color: white;
+        font-size: 18px;
+        text-transform: uppercase;
+        border: 1px solid transparent;
+        border-radius: 5x;
+        cursor: pointer;
+        padding: 7px 10px;
+        &:hover,
+        .active {
+          border: 1px solid white;
+          transition: 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+  .menu-icon {
+    display: none;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    line-height: 80;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1048px) {
+  .navbar {    
+    .logo {
+      font-size: 32px;
+      padding-left: 60px;
+    }
+    ul {
+      margin-right: 20px;
+      li {
+        a {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .navbar {
+      &.active{
+          height: 78px;
+        width: 100%;
+        background: rgba(15, 85, 126, 1);
+        backdrop-filter: blur(6rem); 
+      }
+    ul {
+        display: none;
+      &.active {
+          margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        position: fixed;
+        height: calc(100vh - 80px);
+        width: 100%;
+        background: rgba(15, 85, 126,1);
+        backdrop-filter: blur(6rem);
+        top: 80px;
+        left: 0;
+        li{
+            margin: 30px 0 ;
+            line-height: 30px;
+            a{
+                font-size: 20px;
+            }
+        }
+      }
+    }
+    .menu-icon {
+      display: block;
+    }
+  }
+}

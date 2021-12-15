@@ -1,0 +1,20 @@
+@import "../../global.scss";
+
+.experience{
+    position: absolute;
+    top: 10px;
+    animation: fadeIn 1.1s ease-in-out;
+    text-align: center;
+    .jobs{
+        margin-top: 10px;
+        .job{
+            .job-desc{
+                text-align: left;
+                list-style-type: circle;
+                li{
+                    line-height: 20px;
+                }
+            }
+        }
+    }    
+}

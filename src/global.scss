@@ -1,0 +1,26 @@
+$mainColor: #15203a;
+$width: 768px;
+
+@mixin tablet {
+    @media(max-width: #{$width}){
+        @content
+    }
+};
+
+@mixin mobile {
+    @media(max-width: 480px){
+        @content
+    }
+};
+
+@keyframes fadeIn {
+    0%{
+        top: -90%;
+        opacity: 0;
+    }
+    100%{
+        top: 10px;
+        bottom: 0;
+        opacity: 1;
+    }
+}

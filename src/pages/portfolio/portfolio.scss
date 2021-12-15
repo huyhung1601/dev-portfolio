@@ -1,0 +1,87 @@
+@import '../../global.scss';
+
+.portfolio{
+    background: linear-gradient(to top right, rgb(38, 207, 212), rgb(7, 19, 88));
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    h1{
+        color: white;
+        font-size: 40px;
+        @include tablet{
+            font-size: 20px;
+        }
+    }
+    ul{
+        margin: 10px;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        @include tablet{
+            margin: 10px 0px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    
+    .container{
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        @include tablet{
+           width: 100% 
+        }
+        .item{
+            width: 320px;
+            height: 190px;
+            border-radius: 20px;
+            border: 1px solid lightgrey;
+            overflow: hidden;
+            margin: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            @include tablet{
+                width: 220px;
+                height: 320px;
+             }
+            @include mobile{
+                width: 220px;
+                height: 130px;
+            }
+            h3{
+                position: absolute;
+                font-style: 20px;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+                position: absolute;
+                bottom: 30%;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                object-fit: cover;
+            }
+
+            &:hover{
+                background-color: $mainColor;
+
+                img{
+                    opacity: 0.2;
+                    z-index: 0;
+                }
+            }
+        }
+    }
+}

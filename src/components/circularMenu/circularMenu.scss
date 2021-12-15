@@ -1,0 +1,204 @@
+.circular-menu {
+  margin: 0 10px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: ease-in-out;
+  .toggle {
+    position: absolute;
+    transition: all ease 0.5s;
+    z-index: 2;
+    animation: rotate 5s infinite ease;
+    &.active {
+      transform: rotate(360deg);
+    }
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+  }
+  li {
+    list-style: none;
+    position: absolute;
+    transition: 2.5s ease-in-out;
+    background-color: rgba(150, 150, 150, 0.4);
+    backdrop-filter: blur(33rem);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    &.activate {
+      background-color: rgb(142, 246, 250);
+      box-shadow: 0 2px 2px rgb(142, 246, 250), 0px 2px 2px rgb(142, 246, 250);
+    }
+
+    @for $i from 2 through 5 {
+      &:nth-child(#{$i}) {
+        transform-origin: 110px;
+        transform: rotate(0) translateX(100px);
+        left: 90px;
+        &.active {
+          animation: orbit#{$i} 20s linear 0s infinite;
+          transform: rotate(calc(45deg + 360deg / 4 * #{$i}));
+          h6 {
+            animation: imgRotate#{$i} 20s linear 0s infinite;
+          }
+          span {
+            &.activate {
+              opacity: 0;
+              width: 60px;
+              height: 2px;
+              background-color: rgb(142, 246, 250);
+              position: absolute;
+              z-index: -1;
+              animation: lazer 1s linear;
+              transform: translateX(40px);
+            }
+          }
+        }
+      }
+    }
+
+    @for $i from 6 through 11 {
+      &:nth-child(#{$i}) {
+        left: 30px;
+        transform-origin: 170px;
+        transform: rotate(0deg) translateX(160px);
+        &.active {
+          animation: orbit#{$i} reverse 30s linear 0s infinite;
+          transform: rotate(calc(360deg / 6 * #{$i}));
+          h6 {
+            animation: imgRotate#{$i} reverse 30s linear 0s infinite;
+          }
+          span {
+            &.activate {
+              right: 10px;
+              opacity: 0;
+              width: 130px;
+              height: 2px;
+              background-color: rgb(142, 246, 250);
+              position: absolute;
+              z-index: -1;
+              animation: lazer 1s linear;
+              transform: translateX(120px);
+            }
+          }
+        }
+      }
+    }
+
+    // img {
+    //   background-color: rgba(150, 150, 150, 0.4);
+    //   backdrop-filter: blur(33rem);
+    //   width: 80px;
+    //   height: 80px;
+    //   border-radius: 50%;
+    //   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2),
+    //     0px 0px 50px rgba(0, 0, 0, 0.1);
+    //   object-fit: contain;
+    //   transition: all 1s ease-in-out;
+    // }
+  }
+  .circle1 {
+    position: absolute;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    background-color: transparent;
+    border: 1px solid rgb(63, 211, 216);
+  }
+  .circle2 {
+    position: absolute;
+    border-radius: 50%;
+    width: 310px;
+    height: 310px;
+    background-color: transparent;
+    border: 1px solid rgb(63, 211, 216);
+  }
+  svg {
+    width: 0;
+  }
+}
+
+//Animation
+@keyframes lazer {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(60deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-60deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+@for $i from 2 through 11 {
+  $d: 1;
+  @if $i <= 5 {
+    $d: 4;
+  } @else {
+    $d: 6;
+  }
+  @keyframes orbit#{$i} {
+    from {
+      transform: rotate(calc(45deg + 360deg / #{$d} * #{$i}));
+    }
+    to {
+      transform: rotate(calc(360deg + 45deg + 360deg / #{$d} * #{$i}));
+    }
+  }
+  @keyframes imgRotate#{$i} {
+    from {
+      transform: rotate(calc(-45deg + 360deg / -#{$d} * #{$i}));
+    }
+    to {
+      transform: rotate(calc(-45deg + 360deg / -#{$d} * #{$i} - 360deg));
+    }
+  }
+}
+@media screen and (max-width: 812px) {
+  .circular-menu {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .circular-menu {
+    margin: 0;
+    transform: scale(80%);
+   display: flex;
+  }
+}
+@media screen and (max-width: 480px) {
+  .circular-menu {
+    transform: scale(65%);
+    
+  }
+}
