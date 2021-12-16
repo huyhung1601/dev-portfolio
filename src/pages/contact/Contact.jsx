@@ -4,6 +4,9 @@ import Email from "../../img/email.png";
 import Address from "../../img/address.png";
 import "./contact.scss";
 import emailjs from "emailjs-com";
+import { Animator,batch,MoveIn,Fade } from "react-scroll-motion";
+const ZoomInScrollOut = batch(Fade(),MoveIn(0,-400));
+
 const Contact = () => {
   const formRef = useRef();
   const handleSubmit = (e) => {
@@ -25,18 +28,20 @@ const Contact = () => {
       );
   };
   return (
+    
     <div className="c" id='contact'>
+      <Animator animation={ZoomInScrollOut}>
       <div className="c-wrapper">
         <div className="c-left">
             <h4 className="c-title">Contact</h4>
           <div className="c-info">
             <div className="c-info-item">
               <img src={Phone} alt="" className="c-icon" />
-              +1 1234 556 75
+              +61 420 600 611
             </div>
             <div className="c-info-item">
               <img className="c-icon" src={Email} alt="" />
-              contact@lama.dev
+              huyhung1601@gmail.com
             </div>
             <div className="c-info-item">
               <img className="c-icon" src={Address} alt="" />
@@ -74,7 +79,9 @@ const Contact = () => {
           </form>
         </div>
       </div>
+      </Animator>
     </div>
+    
   );
 };
 

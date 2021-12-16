@@ -1,11 +1,12 @@
 import React from "react";
-import { Animator,Fade,FadeOut,Sticky,MoveIn, batch, MoveOut } from "react-scroll-motion";
+import { Animator,Fade, batch, MoveOut } from "react-scroll-motion";
 
 import "./home.scss";
 
 const Home = () => {
   return (
     <div className="home" id="home">
+      <Animator animation={batch(Fade(), MoveOut(-440, 0))}>
         <div className="home-left">
           <div className="home-bg-cards">
             <div className="home-bg-card three">
@@ -27,6 +28,7 @@ const Home = () => {
             </p>
           </div>
         </div>
+        </Animator>
         <div className="home-right">
           <div className="home-right-container">
             <span />
