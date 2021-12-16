@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PortfolioItem from "../../components/portfolioItem/PortfolioItem";
 import PortfolioList from "../../components/portfolioList/PortfolioList";
 import {
   featuredPortfolio,
@@ -60,9 +61,9 @@ const Portfolio = () => {
     <div className="portfolio" id="portfolio">
       <h1>PORTFOLIO</h1>
       <ul>
-        {list.map((item,index) => (
+        {list.map((item, index) => (
           <PortfolioList
-          key={index}
+            key={index}
             item={item}
             active={selected === item.id}
             setSelected={setSelected}
@@ -70,12 +71,8 @@ const Portfolio = () => {
         ))}
       </ul>
       <div className="container">
-        {data.map((d,i) => (
-          <div key={i} className="item">
-            <img src={d.img} alt="" />
-            <h3>{d.title}</h3>
-            <a href={d.link || 'https://github.com/huyhung1601'} target="_blank">{d.link || 'https://github.com/huyhung1601' }</a>
-          </div>
+        {data.map((d, i) => (
+          <PortfolioItem d={d} key={i} active={d.type === selected} />
         ))}
       </div>
     </div>

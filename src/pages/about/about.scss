@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-evenly;
   background: linear-gradient(to left top, rgb(7, 19, 88), rgb(38, 207, 212));
+  height: 100%;
   
   .about-left {
     display: flex;
@@ -66,6 +67,9 @@
       .about-btns{
         flex-direction: column;
       }   
+      .about-content{
+        height: 220px;
+      }
       }
     .about-right{
       display: none;
@@ -76,6 +80,7 @@
 @media screen and (max-width: 768px) {
   .about{
     .about-left{
+      font-size: 11px;
     flex-direction: column;
     .about-btns{
       flex-direction: row;
@@ -93,7 +98,6 @@
         .about-content{
           padding: 10px;
             width: 330px;
-            height: 200px;
         }
     }
   }
